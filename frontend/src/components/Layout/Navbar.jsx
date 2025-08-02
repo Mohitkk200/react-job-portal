@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../main";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../api";
 import toast from "react-hot-toast";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai"; // Import the close icon
@@ -13,8 +13,8 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:4000/api/v1/user/logout",
+      const response = await API.get(
+        "/api/v1/user/logout",
         {
           withCredentials: true,
         }
