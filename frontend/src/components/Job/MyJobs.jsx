@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../../api";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaCheck } from "react-icons/fa6";
@@ -16,8 +16,8 @@ const MyJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:4000/api/v1/job/getmyjobs",
+        const { data } = await API.get(
+          "/api/v1/job/getmyjobs",
           { withCredentials: true }
         );
         setMyJobs(data.myJobs);
